@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:5000';
+const API_BASE = 'https://online-debate-and-presentation-system-production.up.railway.app';
 
 document.addEventListener('DOMContentLoaded', () => {
   const emailInput = document.querySelector('.panel-right input[type="email"]');

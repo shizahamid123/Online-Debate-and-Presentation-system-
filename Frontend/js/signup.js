@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:5000';
+const API_BASE = 'https://online-debate-and-presentation-system-production.up.railway.app';
 const TOKEN_KEY = 'debatePlatformToken';
 
 document.addEventListener('DOMContentLoaded', () => {
