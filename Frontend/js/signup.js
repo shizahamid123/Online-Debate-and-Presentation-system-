@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem(TOKEN_KEY, data.token);
       localStorage.setItem('currentUser', JSON.stringify({ id: data.id, username: data.username, email: data.email, role: data.role }));
       alert('Account created successfully. Welcome to the arena!');
-      window.location.href = 'dashboard.html';
+      window.location.href = '/dashboard.html';
     } catch (error) {
       alert('Signup failed. Please try again later.');
     }
