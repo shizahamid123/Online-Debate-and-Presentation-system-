@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debate Arena — Join Debate</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="CSS/common.css">
+<link rel="stylesheet" href="CSS/join-debate.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="glow"></div>
+<div class="scanline"></div>
+
+<div class="debate-container">
+  <!-- HEADER NAV -->
+  <nav class="top-nav">
+    <div class="nav-brand">
+      <div class="logo-icon">D</div>
+      <span>DEBATE ARENA</span>
+    </div>
+    <div class="nav-back">
+      <a href="dashboard.html" class="back-link">← BACK</a>
+    </div>
+  </nav>
+
+  <!-- JOIN DEBATE -->
+  <main class="debate-main">
+    <section class="join-section">
+      <h1>FIND & JOIN DEBATES</h1>
+      <p class="section-subtitle">Browse available debates and join instantly</p>
+
+      <!-- SEARCH & FILTER -->
+      <div class="search-area">
+        <input class="search-box" type="text" placeholder="Search debates...">
+        <select class="filter-select">
+          <option>All Categories</option>
+          <option>Politics</option>
+          <option>Technology</option>
+          <option>Science</option>
+          <option>Economics</option>
+          <option>Philosophy</option>
+          <option>Environment</option>
+        </select>
+        <select class="filter-select">
+          <option>All Levels</option>
+          <option>Beginner</option>
+          <option>Intermediate</option>
+          <option>Advanced</option>
+        </select>
+      </div>
+
+      <!-- AVAILABLE DEBATES -->
+      <div class="debates-list">
+        <div class="debate-item">
+          <div class="debate-item-header">
+            <h3>AI Ethics & Responsibility</h3>
+            <span class="difficulty intermediate">INTERMEDIATE</span>
+          </div>
+          <p class="debate-item-desc">Exploring the ethical implications of artificial intelligence in society</p>
+          <div class="debate-item-stats">
+            <span>👥 4/8 joined</span>
+            <span>⏰ 45 min</span>
+            <span>🎯 Technology</span>
+          </div>
+          <button class="join-btn" onclick="joinDebate()">JOIN DEBATE</button>
+        </div>
+
+        <div class="debate-item">
+          <div class="debate-item-header">
+            <h3>Climate Change Action</h3>
+            <span class="difficulty beginner">BEGINNER</span>
+          </div>
+          <p class="debate-item-desc">Is immediate climate action necessary? Discuss environmental policies.</p>
+          <div class="debate-item-stats">
+            <span>👥 6/10 joined</span>
+            <span>⏰ 60 min</span>
+            <span>🎯 Environment</span>
+          </div>
+          <button class="join-btn" onclick="joinDebate()">JOIN DEBATE</button>
+        </div>
+
+        <div class="debate-item">
+          <div class="debate-item-header">
+            <h3>Cryptocurrency Future</h3>
+            <span class="difficulty advanced">ADVANCED</span>
+          </div>
+          <p class="debate-item-desc">Will cryptocurrency replace traditional finance systems?</p>
+          <div class="debate-item-stats">
+            <span>👥 5/6 joined</span>
+            <span>⏰ 90 min</span>
+            <span>🎯 Economics</span>
+          </div>
+          <button class="join-btn" onclick="joinDebate()">JOIN DEBATE</button>
+        </div>
+
+        <div class="debate-item">
+          <div class="debate-item-header">
+            <h3>Remote Work Benefits</h3>
+            <span class="difficulty beginner">BEGINNER</span>
+          </div>
+          <p class="debate-item-desc">Advantages and disadvantages of working from home</p>
+          <div class="debate-item-stats">
+            <span>👥 3/8 joined</span>
+            <span>⏰ 30 min</span>
+            <span>🎯 Technology</span>
+          </div>
+          <button class="join-btn" onclick="joinDebate()">JOIN DEBATE</button>
+        </div>
+
+        <div class="debate-item">
+          <div class="debate-item-header">
+            <h3>Universal Basic Income</h3>
+            <span class="difficulty advanced">ADVANCED</span>
+          </div>
+          <p class="debate-item-desc">Should governments implement universal basic income?</p>
+          <div class="debate-item-stats">
+            <span>👥 7/8 joined</span>
+            <span>⏰ 120 min</span>
+            <span>🎯 Economics</span>
+          </div>
+          <button class="join-btn full" onclick="joinDebate()">FULL - WAITING LIST</button>
+        </div>
+
+        <div class="debate-item">
+          <div class="debate-item-header">
+            <h3>Space Exploration Worth?</h3>
+            <span class="difficulty intermediate">INTERMEDIATE</span>
+          </div>
+          <p class="debate-item-desc">Is investing in space exploration justified?</p>
+          <div class="debate-item-stats">
+            <span>👥 2/6 joined</span>
+            <span>⏰ 75 min</span>
+            <span>🎯 Science</span>
+          </div>
+          <button class="join-btn" onclick="joinDebate()">JOIN DEBATE</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="JS/join-debate.js"></script>
+</body>
+</html>

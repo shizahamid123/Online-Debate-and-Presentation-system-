@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debate Arena — Create Debate</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="CSS/common.css">
+<link rel="stylesheet" href="CSS/create-debate.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="glow"></div>
+<div class="scanline"></div>
+
+<div class="debate-container">
+  <!-- HEADER NAV -->
+  <nav class="top-nav">
+    <div class="nav-brand">
+      <div class="logo-icon">D</div>
+      <span>DEBATE ARENA</span>
+    </div>
+    <div class="nav-back">
+      <a href="dashboard.html" class="back-link">← BACK</a>
+    </div>
+  </nav>
+
+  <!-- CREATE DEBATE FORM -->
+  <main class="debate-main">
+    <section class="debate-form-card">
+      <h1>CREATE NEW DEBATE</h1>
+      <p class="form-subtitle">Set up your debate room and invite participants</p>
+
+      <form id="create-debate-form" onsubmit="handleCreateDebate(event)">
+        <div class="form-group">
+          <label class="field-label">DEBATE TITLE</label>
+          <input class="field-input" type="text" placeholder="Enter debate topic" required>
+        </div>
+
+        <div class="form-group">
+          <label class="field-label">CATEGORY</label>
+          <select class="field-input field-select">
+            <option>Select a category</option>
+            <option>Politics</option>
+            <option>Technology</option>
+            <option>Science</option>
+            <option>Economics</option>
+            <option>Philosophy</option>
+            <option>Environment</option>
+            <option>Sports</option>
+            <option>Entertainment</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="field-label">DIFFICULTY LEVEL</label>
+          <div class="difficulty-options">
+            <label class="radio-label">
+              <input type="radio" name="difficulty" value="beginner">
+              BEGINNER
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="difficulty" value="intermediate" checked>
+              INTERMEDIATE
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="difficulty" value="advanced">
+              ADVANCED
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="field-label">DESCRIPTION</label>
+          <textarea class="field-input" placeholder="Describe your debate..." rows="4"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="field-label">TIMER (minutes)</label>
+            <input class="field-input" type="number" placeholder="30" min="5" max="120">
+          </div>
+          <div class="form-group">
+            <label class="field-label">MAX PARTICIPANTS</label>
+            <input class="field-input" type="number" placeholder="8" min="2" max="100">
+          </div>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="check-label">
+            <span class="check-box" onclick="this.classList.toggle('active')"></span>
+            ENABLE VOTING
+          </label>
+          <label class="check-label">
+            <span class="check-box active" onclick="this.classList.toggle('active')"></span>
+            ALLOW CHAT
+          </label>
+          <label class="check-label">
+            <span class="check-box" onclick="this.classList.toggle('active')"></span>
+            REQUIRE REGISTRATION
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn">CREATE DEBATE</button>
+      </form>
+    </section>
+  </main>
+</div>
+
+<script src="JS/create-debate.js"></script>
+</body>
+</html>

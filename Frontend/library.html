@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debate Arena — Topics Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="CSS/common.css">
+<link rel="stylesheet" href="CSS/library.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="glow"></div>
+<div class="scanline"></div>
+
+<div class="library-container">
+  <!-- HEADER NAV -->
+  <nav class="top-nav">
+    <div class="nav-brand">
+      <div class="logo-icon">D</div>
+      <span>DEBATE ARENA</span>
+    </div>
+    <div class="nav-menu">
+      <a href="dashboard.html" class="nav-item">DASHBOARD</a>
+      <a href="profile.html" class="nav-item">PROFILE</a>
+      <a href="#" class="nav-item">LIBRARY</a>
+    </div>
+    <button class="logout-btn" onclick="logout()">LOGOUT</button>
+  </nav>
+
+  <!-- LIBRARY CONTENT -->
+  <main class="library-main">
+    <section class="library-header">
+      <h1>TOPICS LIBRARY</h1>
+      <p class="header-subtitle">Explore debate topics and expand your knowledge</p>
+    </section>
+
+    <!-- SEARCH & FILTER -->
+    <div class="library-controls">
+      <input class="search-input" type="text" placeholder="Search topics...">
+      <select class="category-select">
+        <option>All Categories</option>
+        <option>Politics</option>
+        <option>Technology</option>
+        <option>Science</option>
+        <option>Economics</option>
+        <option>Philosophy</option>
+        <option>Environment</option>
+        <option>Sports</option>
+        <option>Entertainment</option>
+      </select>
+    </div>
+
+    <!-- TOPICS GRID -->
+    <div class="topics-grid">
+      <div class="topic-card">
+        <div class="topic-icon">🏛️</div>
+        <h3>Politics & Government</h3>
+        <p class="topic-count">24 topics</p>
+        <button class="explore-btn" onclick="exploreTopic('Politics')">EXPLORE</button>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">💻</div>
+        <h3>Technology & AI</h3>
+        <p class="topic-count">32 topics</p>
+        <button class="explore-btn" onclick="exploreTopic('Technology')">EXPLORE</button>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🔬</div>
+        <h3>Science & Research</h3>
+        <p class="topic-count">28 topics</p>
+        <button class="explore-btn" onclick="exploreTopic('Science')">EXPLORE</button>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">💰</div>
+        <h3>Economics & Finance</h3>
+        <p class="topic-count">19 topics</p>
+        <button class="explore-btn" onclick="exploreTopic('Economics')">EXPLORE</button>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🌍</div>
+        <h3>Environment & Climate</h3>
+        <p class="topic-count">21 topics</p>
+        <button class="explore-btn" onclick="exploreTopic('Environment')">EXPLORE</button>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🧠</div>
+        <h3>Philosophy & Ethics</h3>
+        <p class="topic-count">26 topics</p>
+        <button class="explore-btn" onclick="exploreTopic('Philosophy')">EXPLORE</button>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">⚽</div>
+        <h3>Sports & Recreation</h3>
+        <p class="topic-count">17 topics</p>
+        <button class="explore-btn" onclick="exploreTopic('Sports')">EXPLORE</button>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🎬</div>
+        <h3>Entertainment & Arts</h3>
+        <p class="topic-count">22 topics</p>
+        <button class="explore-btn" onclick="exploreTopic('Entertainment')">EXPLORE</button>
+      </div>
+    </div>
+
+    <!-- FEATURED TOPICS -->
+    <section class="featured-section">
+      <h2>FEATURED DEBATE TOPICS</h2>
+      <div class="featured-list">
+        <div class="featured-item">
+          <span class="featured-number">1</span>
+          <div class="featured-info">
+            <h4>Should AI Replace Human Jobs?</h4>
+            <p class="featured-category">Technology</p>
+          </div>
+          <span class="featured-debates">152 debates</span>
+        </div>
+
+        <div class="featured-item">
+          <span class="featured-number">2</span>
+          <div class="featured-info">
+            <h4>Climate Change Action Priority</h4>
+            <p class="featured-category">Environment</p>
+          </div>
+          <span class="featured-debates">128 debates</span>
+        </div>
+
+        <div class="featured-item">
+          <span class="featured-number">3</span>
+          <div class="featured-info">
+            <h4>Universal Basic Income System</h4>
+            <p class="featured-category">Economics</p>
+          </div>
+          <span class="featured-debates">115 debates</span>
+        </div>
+
+        <div class="featured-item">
+          <span class="featured-number">4</span>
+          <div class="featured-info">
+            <h4>Space Exploration Necessity</h4>
+            <p class="featured-category">Science</p>
+          </div>
+          <span class="featured-debates">98 debates</span>
+        </div>
+
+        <div class="featured-item">
+          <span class="featured-number">5</span>
+          <div class="featured-info">
+            <h4>Social Media Regulation</h4>
+            <p class="featured-category">Technology</p>
+          </div>
+          <span class="featured-debates">87 debates</span>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="JS/library.js"></script>
+</body>
+</html>

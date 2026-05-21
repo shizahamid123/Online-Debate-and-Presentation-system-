@@ -1,0 +1,16 @@
+{
+  "name": "online-debate-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo for the Online Debate and Presentation Platform with backend and frontend components.",
+  "scripts": {
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd \"Front End\" && npm install",
+    "start:backend": "cd backend && npm start",
+    "dev:backend": "cd backend && npm run dev",
+    "serve:frontend": "cd \"Front End\" && npm run serve",
+    "lint:backend": "cd backend && node --check server.js config/db.js controllers/*.js middleware/*.js routes/*.js",
+    "lint:frontend": "cd \"Front End\" && node --check js/login.js js/signup.js js/forgot-password.js js/dashboard.js js/create-debate.js js/join-debate.js js/profile.js js/library.js",
+    "lint": "npm run lint:backend && npm run lint:frontend"
+  }
+}

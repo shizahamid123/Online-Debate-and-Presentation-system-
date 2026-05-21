@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debate Arena — Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="CSS/common.css">
+<link rel="stylesheet" href="CSS/profile.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="glow"></div>
+<div class="scanline"></div>
+
+<div class="profile-container">
+  <!-- HEADER NAV -->
+  <nav class="top-nav">
+    <div class="nav-brand">
+      <div class="logo-icon">D</div>
+      <span>DEBATE ARENA</span>
+    </div>
+    <div class="nav-menu">
+      <a href="dashboard.html" class="nav-item">DASHBOARD</a>
+      <a href="#" class="nav-item">PROFILE</a>
+      <a href="library.html" class="nav-item">LIBRARY</a>
+    </div>
+    <button class="logout-btn" onclick="logout()">LOGOUT</button>
+  </nav>
+
+  <!-- PROFILE CONTENT -->
+  <main class="profile-main">
+    <!-- PROFILE CARD -->
+    <section class="profile-card">
+      <div class="profile-header">
+        <div class="profile-image">
+          <img src="images/default-avatar.svg" alt="User Avatar">
+        </div>
+        <div class="profile-info">
+          <h1>John Debater</h1>
+          <p class="profile-username">@johndebater</p>
+          <p class="profile-role">ROLE: USER</p>
+          <p class="profile-bio">Passionate about debates, presentations, and winning arguments!</p>
+        </div>
+        <button class="edit-profile-btn" onclick="editProfile()">EDIT PROFILE</button>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section class="achievements-section">
+      <h2>ACHIEVEMENTS</h2>
+      <div class="achievements-grid">
+        <div class="achievement-badge">
+          <span class="achievement-icon">🏆</span>
+          <p class="achievement-title">Debate Champion</p>
+          <p class="achievement-desc">Won 10 debates</p>
+        </div>
+        <div class="achievement-badge">
+          <span class="achievement-icon">⭐</span>
+          <p class="achievement-title">Rising Star</p>
+          <p class="achievement-desc">50 debates participated</p>
+        </div>
+        <div class="achievement-badge">
+          <span class="achievement-icon">🎯</span>
+          <p class="achievement-title">Accuracy Expert</p>
+          <p class="achievement-desc">90% argument accuracy</p>
+        </div>
+        <div class="achievement-badge locked">
+          <span class="achievement-icon">👑</span>
+          <p class="achievement-title">Master Debater</p>
+          <p class="achievement-desc">100 debates won</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATISTICS -->
+    <section class="stats-section">
+      <h2>YOUR STATISTICS</h2>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <span class="stat-number">45</span>
+          <p class="stat-label">DEBATES WON</p>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">67</span>
+          <p class="stat-label">DEBATES JOINED</p>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">8.5</span>
+          <p class="stat-label">AVG RATING</p>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">12</span>
+          <p class="stat-label">TOPICS</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICS -->
+    <section class="topics-section">
+      <h2>YOUR TOPICS</h2>
+      <div class="topics-list">
+        <span class="topic-tag">Politics</span>
+        <span class="topic-tag">Technology</span>
+        <span class="topic-tag">Science</span>
+        <span class="topic-tag">Economics</span>
+        <span class="topic-tag">Philosophy</span>
+        <span class="topic-tag">Environment</span>
+        <span class="topic-tag">Sports</span>
+        <span class="topic-tag">Entertainment</span>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="JS/profile.js"></script>
+</body>
+</html>

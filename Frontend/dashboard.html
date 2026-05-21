@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debate Arena — Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="CSS/common.css">
+<link rel="stylesheet" href="CSS/dashboard.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="glow"></div>
+<div class="scanline"></div>
+
+<div class="dashboard-container">
+  <!-- TOP NAVIGATION -->
+  <nav class="top-nav">
+    <div class="nav-brand">
+      <div class="logo-icon">D</div>
+      <span>DEBATE ARENA</span>
+    </div>
+    <div class="nav-menu">
+      <a href="#" class="nav-item">DASHBOARD</a>
+      <a href="profile.html" class="nav-item">PROFILE</a>
+      <a href="library.html" class="nav-item">LIBRARY</a>
+    </div>
+    <div class="nav-right">
+      <button class="notif-btn" id="notif-toggle">
+        🔔 <span class="notif-badge">3</span>
+      </button>
+      <button class="logout-btn" onclick="logout()">LOGOUT</button>
+    </div>
+  </nav>
+
+  <div class="dashboard-main">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <h3>QUICK ACTIONS</h3>
+        <button class="sidebar-btn" onclick="goTo('create-debate.html')">+ CREATE DEBATE</button>
+        <button class="sidebar-btn" onclick="goTo('join-debate.html')">+ JOIN DEBATE</button>
+      </div>
+      <div class="sidebar-section">
+        <h3>YOUR ROOMS</h3>
+        <div class="room-list" id="room-list">
+          <a href="#" class="room-item">Room #1: Politics</a>
+          <a href="#" class="room-item">Room #2: Science</a>
+          <a href="#" class="room-item">Room #3: Tech</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <!-- NOTIFICATIONS -->
+      <div class="notifications" id="notifications" style="display: none;">
+        <div class="notif-item">
+          <span class="notif-icon">📢</span>
+          <div class="notif-details">
+            <p class="notif-title">Debate Started</p>
+            <p class="notif-time">2 hours ago</p>
+          </div>
+        </div>
+        <div class="notif-item">
+          <span class="notif-icon">🎯</span>
+          <div class="notif-details">
+            <p class="notif-title">New Invitation</p>
+            <p class="notif-time">5 hours ago</p>
+          </div>
+        </div>
+        <div class="notif-item">
+          <span class="notif-icon">⭐</span>
+          <div class="notif-details">
+            <p class="notif-title">Achievement Unlocked</p>
+            <p class="notif-time">1 day ago</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- WELCOME SECTION -->
+      <section class="welcome-section">
+        <h1>WELCOME_BACK, USER</h1>
+        <p>Your debate stats await</p>
+      </section>
+
+      <!-- UPCOMING DEBATES -->
+      <section class="debates-section">
+        <h2>UPCOMING DEBATES</h2>
+        <div class="debates-grid">
+          <div class="debate-card">
+            <div class="debate-header">
+              <h3>AI Ethics & Society</h3>
+              <span class="difficulty-tag">INTERMEDIATE</span>
+            </div>
+            <p class="debate-desc">Discuss the implications of AI in modern society</p>
+            <div class="debate-meta">
+              <span>⏰ 2 hours</span>
+              <span>👥 4 participants</span>
+            </div>
+            <button class="join-debate-btn" onclick="joinDebate()">JOIN NOW</button>
+          </div>
+
+          <div class="debate-card">
+            <div class="debate-header">
+              <h3>Climate Action Now</h3>
+              <span class="difficulty-tag beginner">BEGINNER</span>
+            </div>
+            <p class="debate-desc">Environmental responsibility and global warming</p>
+            <div class="debate-meta">
+              <span>⏰ 4 hours</span>
+              <span>👥 6 participants</span>
+            </div>
+            <button class="join-debate-btn" onclick="joinDebate()">JOIN NOW</button>
+          </div>
+
+          <div class="debate-card">
+            <div class="debate-header">
+              <h3>Remote Work Future</h3>
+              <span class="difficulty-tag advanced">ADVANCED</span>
+            </div>
+            <p class="debate-desc">Is remote work the future of work?</p>
+            <div class="debate-meta">
+              <span>⏰ 6 hours</span>
+              <span>👥 5 participants</span>
+            </div>
+            <button class="join-debate-btn" onclick="joinDebate()">JOIN NOW</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- JOINED ROOMS -->
+      <section class="joined-section">
+        <h2>YOUR JOINED ROOMS</h2>
+        <div class="rooms-grid">
+          <div class="room-card">
+            <div class="room-title">Politics Discussion</div>
+            <div class="room-members">👥 8 members</div>
+            <div class="room-status">🟢 ACTIVE NOW</div>
+            <button class="enter-room-btn" onclick="enterRoom()">ENTER ROOM</button>
+          </div>
+
+          <div class="room-card">
+            <div class="room-title">Science & Facts</div>
+            <div class="room-members">👥 12 members</div>
+            <div class="room-status">🔴 OFFLINE</div>
+            <button class="enter-room-btn offline-room" onclick="enterRoom()">WAITING</button>
+          </div>
+
+          <div class="room-card">
+            <div class="room-title">Tech Innovation</div>
+            <div class="room-members">👥 6 members</div>
+            <div class="room-status">🟢 ACTIVE NOW</div>
+            <button class="enter-room-btn" onclick="enterRoom()">ENTER ROOM</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script src="JS/dashboard.js"></script>
+</body>
+</html>

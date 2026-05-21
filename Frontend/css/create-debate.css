@@ -1,0 +1,135 @@
+/* Create Debate styles */
+
+.debate-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+.debate-main {
+  flex: 1;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.debate-form-card {
+  background: rgba(3, 1, 8, 0.96);
+  border: 1px solid rgba(160, 80, 255, 0.2);
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 0 30px rgba(160, 80, 255, 0.1);
+}
+
+.debate-form-card h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #fff;
+  font-size: 32px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.form-subtitle {
+  color: #a050ff;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.field-select {
+  cursor: pointer;
+}
+
+.field-select option {
+  background: #050208;
+  color: #d090ff;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.difficulty-options {
+  display: flex;
+  gap: 12px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #a050ff;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.radio-label input[type="radio"] {
+  cursor: pointer;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.back-link {
+  color: #a050ff;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+
+.back-link:hover {
+  text-shadow: 0 0 10px rgba(160, 80, 255, 0.8);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .debate-main {
+    padding: 16px;
+  }
+
+  .debate-form-card {
+    padding: 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .difficulty-options {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .debate-main {
+    padding: 12px;
+  }
+
+  .debate-form-card {
+    padding: 16px;
+  }
+
+  .debate-form-card h1 {
+    font-size: 24px;
+  }
+
+  .checkbox-group {
+    gap: 8px;
+  }
+}
