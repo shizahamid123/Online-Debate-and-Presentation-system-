@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!email || !password) return alert('Please enter email and password.');
 
     try {
-      const response = await fetch(`${API_BASE}/api/auth/login`, {
+      const response = await fetch(`${API_BASE}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),

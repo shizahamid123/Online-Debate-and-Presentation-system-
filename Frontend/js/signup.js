@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const username = fullName.toLowerCase().replace(/\s+/g, '');
 
     try {
-      const response = await fetch(`${API_BASE}/api/auth/signup`, {
+      const response = await fetch(`${API_BASE}/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ fullName, email, password, username }),
