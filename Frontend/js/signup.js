@@ -1,4 +1,4 @@
-const API_BASE = 'https://online-debate-and-presentation-system-production.up.railway.app/api/auth/signup';
+const API_BASE = 'https://online-debate-and-presentation-system-production.up.railway.app/api/auth';
 const TOKEN_KEY = 'debatePlatformToken';
 
 document.addEventListener('DOMContentLoaded', () => {
