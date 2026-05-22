@@ -13,10 +13,12 @@ connectDB();
 
 const app = express();
 app.use(cors({
-    origin: '*',
+    origin: 'https://online-debate-and-presentation-syst-five.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
+    credentials: true
 }));
+app.options('*', cors());
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/debates', debateRoutes);
