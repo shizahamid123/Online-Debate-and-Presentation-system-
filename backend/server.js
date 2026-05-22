@@ -12,29 +12,35 @@ connectDB();
 
 const app = express();
 
-// 1. Standard CORS middleware allowance
+// ✅ CORRECT CORS: Specific origin + credentials enabled
+const allowedOrigins = [
+  'https://online-debate-and-presentation-syst-five.vercel.app',
+  'http://localhost:3000',
+  'http://localhost:5173',
+  'http://localhost:5500',
+  'http://127.0.0.1:5500'
+];
+
 app.use(cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    console.log('CORS blocked:', origin);
+    return callback(new Error('Not allowed by CORS'), false);
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
+  credentials: true,  // ✅ REQUIRED for login/signup cookies/tokens
+  optionsSuccessStatus: 200
 }));
 
-// 2. HARDCODED FORCE HEADERS (Bypasses all proxy blocks entirely)
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    
-    // Instantly intercept browser preflight OPTIONS requests before they can drop
-    if (req.method === 'OPTIONS') {
-        return res.sendStatus(200);
-    }
-    next();
-});
+// ✅ Handle preflight properly (only need this once)
+app.options('*', cors());
 
 app.use(express.json());
 
-// Main App API Routes
+// Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/debates', debateRoutes);
 app.use('/api/users', userRoutes);

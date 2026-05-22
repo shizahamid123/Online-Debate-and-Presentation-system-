@@ -1,4 +1,4 @@
- const API_BASE = 'https://online-debate-and-presentation-system-production.up.railway.app/api/auth';
+ const API_BASE = 'https://online-debate-and-presentation-system-production-8b5c.up.railway.app/api/auth';
 const TOKEN_KEY = 'debatePlatformToken';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -19,11 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!email || !password) return alert('Please enter email and password.');
 
     try {
-      const response = await fetch(`${API_BASE}/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch('https://online-debate-and-presentation-system-production-8b5c.up.railway.app/api/auth/login', {
+  method: 'POST',
+  credentials: 'include',  // ✅ REQUIRED - sends cookies
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email, password })
+});
       const data = await response.json();
       if (!response.ok) {
         return alert(data.message || 'Invalid credentials.');
