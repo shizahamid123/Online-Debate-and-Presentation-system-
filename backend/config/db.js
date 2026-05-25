@@ -4,8 +4,7 @@ const dns = require('dns');
 const connectDB = async () => {
   const uri = process.env.MONGO_URI;
   if (!uri) {
-    console.error('MONGO_URI is required in environment variables');
-    process.exit(1);
+    throw new Error('MONGO_URI is not set in environment variables');
   }
 
   if (uri.startsWith('mongodb+srv://')) {
@@ -13,16 +12,11 @@ const connectDB = async () => {
     console.log('Using public DNS servers for SRV resolution');
   }
 
-  try {
-    await mongoose.connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log('MongoDB connected');
-  } catch (error) {
-    console.error('MongoDB connection failed:', error.message);
-    process.exit(1);
-  }
+  await mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+  console.log('MongoDB connected successfully');
 };
 
 module.exports = connectDB;
