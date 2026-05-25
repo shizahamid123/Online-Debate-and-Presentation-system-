@@ -29,11 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const response = await fetch('https://online-debate-and-presentation-system-production.up.railway.app/api/auth/signup', {
-  method: 'POST',
-  credentials: 'include',  // ✅ REQUIRED - sends cookies
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ email, password })
-});
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fullName, username, email, password })
+      });
       const data = await response.json();
       if (!response.ok) {
         return alert(data.message || 'Signup failed.');
@@ -42,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem(TOKEN_KEY, data.token);
       localStorage.setItem('currentUser', JSON.stringify({ id: data.id, username: data.username, email: data.email, role: data.role }));
       alert('Account created successfully. Welcome to the arena!');
-      window.location.href = '/dashboard.html';
+      window.location.href = 'dashboard.html';
     } catch (error) {
       alert('Signup failed. Please try again later.');
     }
