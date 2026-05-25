@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const response = await fetch('https://online-debate-and-presentation-system-production-8b5c.up.railway.app/api/auth/login', {
   method: 'POST',
-  credentials: 'include',  // ✅ REQUIRED - sends cookies
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({ email, password })
 });

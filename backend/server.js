@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors');
 const dotenv = require('dotenv');
 
 const connectDB = require('./config/db');
@@ -26,30 +25,25 @@ const app = express();
 const allowedOrigins = [
   'https://online-debate-and-presentation-syst-five.vercel.app',
   'http://localhost:5173',
+  'http://localhost:3000',
 ];
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    // Allow requests with no origin (Postman, mobile apps, server-to-server)
-    if (!origin) return callback(null, true);
+// Manual CORS middleware — most reliable approach
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (!origin || allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin || '*');
+  }
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
 
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-
-    console.warn('CORS blocked origin:', origin);
-    return callback(new Error(`CORS: origin "${origin}" not allowed`));
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-};
-
-
-app.options('*', cors(corsOptions));
-
-// Apply CORS to all subsequent requests
-app.use(cors(corsOptions));
+  // Respond to preflight immediately
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+  next();
+});
 
 // =========================
 // Body Parsing Middleware
