@@ -25,6 +25,7 @@ const app = express();
 
 const allowedOrigins = [
   'https://online-debate-and-presentation-syst-five.vercel.app',
+  'https://online-debate-and-presentation-system-production-8b5c.up.railway.app/api/auth/login',
   'http://localhost:5173',
   'http://localhost:3000',
 ];
