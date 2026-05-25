@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       localStorage.setItem(TOKEN_KEY, data.token);
       localStorage.setItem('currentUser', JSON.stringify({ id: data.id, username: data.username, email: data.email, role: data.role }));
-      window.location.href = '/dashboard.html';
+      window.location.href = 'dashboard.html';
     } catch (error) {
       alert('Login failed. Please try again.');
     }
