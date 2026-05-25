@@ -50,7 +50,7 @@ app.use(cors({
 // =========================
 // Body Parsing Middleware
 // =========================
-app.use(cors(corsOptions));
+app.use(cors(allowedOrigins));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
