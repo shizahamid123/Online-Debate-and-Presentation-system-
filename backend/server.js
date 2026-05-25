@@ -1,5 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/auth');
@@ -28,22 +29,22 @@ const allowedOrigins = [
   'http://localhost:3000',
 ];
 
-// Manual CORS middleware — most reliable approach
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-  if (!origin || allowedOrigins.includes(origin)) {
-    res.setHeader('Access-Control-Allow-Origin', origin || '*');
-  }
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-
-  // Respond to preflight immediately
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(204);
-  }
-  next();
-});
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, curl, or Postman)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  optionsSuccessStatus: 204 // Gracefully handles preflight OPTIONS requests status
+}));
 
 // =========================
 // Body Parsing Middleware
@@ -72,7 +73,8 @@ app.use('/api/debates', debateRoutes);
 app.use('/api/users', userRoutes);
 
 // =========================
-
+// 404 Fallback Route
+// =========================
 
 app.use((req, res) => {
   res.status(404).json({
@@ -82,21 +84,19 @@ app.use((req, res) => {
 });
 
 // =========================
-// FIX 3: Global Error Handler
+// Global Error Handler
+// =========================
 
 app.use((err, req, res, next) => {
-  const origin = req.headers.origin;
-  if (origin && allowedOrigins.includes(origin)) {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-  }
+  // The 'cors' package handles headers automatically, even during errors.
+  // We log the error here for clean Railway debugging logs.
+  console.error(`[Error Handler] ${req.method} ${req.url} —`, err.message);
 
-  // Delegate to your custom error handler if it exists
+  // Delegate to your custom error middleware if it exists
   if (errorHandler) {
     return errorHandler(err, req, res, next);
   }
 
-  console.error('Unhandled error:', err.message);
   res.status(err.status || 500).json({
     success: false,
     message: err.message || 'Internal Server Error',
