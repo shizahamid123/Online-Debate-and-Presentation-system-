@@ -41,7 +41,7 @@ app.use(express.urlencoded({ extended: true }));
 // Health Check
 // =========================
 app.get('/', (req, res) => {
-  res.status(200).json({ success: true, message: 'Debate Platform Backend Running' });
+  res.status(200).json({ success: true, message: 'Debate Platform Backend Running', version: 'cors-fix-v3' });
 });
 
 // =========================

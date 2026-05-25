@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!email || !password) return alert('Please enter email and password.');
 
     try {
-      const response = await fetch('https://online-debate-and-presentation-system-production-8b5c.up.railway.app/api/auth/login', {
+      const response = await fetch('https://online-debate-and-presentation-system-production.up.railway.app/api/auth/login', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({ email, password })
